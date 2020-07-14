@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #f5f5f5;
+        }
+        .con{
+            width: 484px;
+            height: 301px;
+            background-color: white;
+            margin: 0 auto;
+        }
+        .box{
+            float: left;
+            width: 462px;
+            height: 282px;
+            margin: 10px;
+            box-shadow: 0 2px 8px 0 rgba(0,0, 0, .09);
+            overflow: hidden;
+        }
+        .title{
+            width: 100%;
+            height: 57px;
+            background: #f1f1f1;
+        }
+        .title a{
+            float: left;
+            width: 50%;
+            height: 100%;
+            line-height: 57px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 18px;
+            color: black;
+        }
+        img{
+            vertical-align: middle;
+        }
+        .imgs{
+            width: 100%;
+            height: 225px;
+            overflow: hidden;
+            position: relative;
+            background-color: white;
+        }
+        .img-list{
+            width: 100%;
+            height: 100%;
+            text-align: center;
+        }
+        .img-list img{
+            width: 200px;
+            height: 200px;
+            float: right;
+            margin-top: 10px;
+            margin-right: 30px;
+        }
+        .imgs-right{
+            background-image: url(img/3.png);
+            position: absolute;
+            top: 96px;
+            height: 87px;
+            width: 291px;
+            background-repeat: no-repeat;
+            background-position: 0 center;
+        }
+        .span1{
+            margin-left: 8px;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #00b262;
+        }
+        .span2{
+            margin-left: 26px;
+            font-size: 20px;
+            letter-spacing: 1px;
+        }
+        .right-top{
+            margin-left: 26px;
+            margin-top: 8px;
+        }
+        .right-top img{
+            width: 23px;
+            height: 23px;
+            margin-top: -10px;
+        }
+    </style>
+</head>
+<body>
+<div class="con">
+    <div class="box">
+        <div class="title">
+            <a href="#" style="background:green;color: white;" >今日疯抢</a>
+            <a href="#">量贩装</a>
+        </div>
+        <div class="imgs">
+            <div class="imgs-right">
+                <div class="right-top">
+                    <span class="span1">零食欢乐购</span>
+                </div>
+                <div class="right-bottom">
+                    <span class="span2">爆款直降</span>
+                </div>
+            </div>
+            <div class="img-list"><img src="img/1.png" alt=""></div>
+        </div>
+        <div class="imgs">
+            <div class="imgs-right">
+                <div class="right-top">
+                    <span class="span1">爆款直降</span>
+                </div>
+                <div class="right-bottom">
+                    <span class="span2">粮油调味</span>
+                </div>
+            </div>
+            <div class="img-list"></div>
+        </div>
+    </div>
+</div>
+    <script>
+        var links=document.querySelectorAll(".title a");
+        var imgs=document.querySelectorAll(".imgs");
+        for(let i=0;i<links.length;i++){
+            links[i].onclick=function(){
+                for(var j=0;j<imgs.length;j++){
+                    imgs[j].style.display="none";
+                    links[j].style.background="#f1f1f1";
+                    links[j].style.color="black";
+                }
+                imgs[i].style.display="block";
+                this.style.background="green";
+                this.style.color="white";
+            }
+        }
+        var flag=false;
+        setInterval(function(){
+            if(flag){
+                links[0].style.background="green";
+                links[1].style.background="#f1f1f1";
+                links[0].style.color="white";
+                links[1].style.color="black"
+                imgs[0].style.display="block";
+                imgs[1].style.display="none";
+                flag=false;
+            }else{
+                links[1].style.background="green";
+                links[0].style.background="#f1f1f1";
+                links[1].style.color="white";
+                links[0].style.color="black"
+                imgs[1].style.display="block";
+                imgs[0].style.display="none";
+                flag=true;
+            }
+        },5000);
+    </script>
+</body>
+</html>
